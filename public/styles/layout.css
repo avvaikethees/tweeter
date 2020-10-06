@@ -22,6 +22,7 @@ body {
   font-weight: 300;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 /*
@@ -30,8 +31,17 @@ body {
 
  main {
   display: flex;
-  align-self: center;
-  justify-content: center;
+  /* justify-content: center;
+  align-self: center; */
   width: 90%;
-  background-color: aqua;
+  background-color: #f4f1ec
  }
+
+/* align-self will center the box and justify-content will center the content within the box  */
+
+.container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
