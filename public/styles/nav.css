@@ -1,0 +1,12 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Source Sans Pro";
+  font-size: 30px;
+  background-color: #4056A1;
+  color: #ffffff;
+  height: 120px;
+  width: 100%;
+  padding: 1.5em; 
+}
+
