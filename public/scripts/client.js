@@ -5,60 +5,37 @@
  */
 $(document).ready(function() {
 
+  const loadTweets = function () {
+    $.ajax('/tweets/', { 
+      method: 'GET',
+      dataType: 'json'
+    })
+    .then(function (data) {
+      renderTweets(data)
+    })
+  }
+
+  loadTweets();
+
   //When I submit a tweet it adds it to the server database
-  $('tweet-form').submit(function (event) {
+  $('#tweet-form').submit(function (event) {
     event.preventDefault();
-    console.log("sending tweets")
-   console.log(event.target.text.value)
-   console.log($(this).serialize())
+  //   console.log("sending tweets")
+  //  console.log(event.target.text.value)
+  //  console.log($(this).serialize())
   //action 
     $.ajax({
       method: "POST", 
       url: "/tweets/",
-      //data: {"text": $("#tweet-text").val()}
+      //data: {"text": $("#tweet-text").val()} // same as below
       data: $(this).serialize()
     })
     .then (function () {
       console.log("sucessfully submitted!")
-  })
-
-  // //load the tweet from the /tweets page database
-  // //use jQuery to make a request to /tweets and recieve the array of tweets to JSON
-  // const loadTweets = 
- 
+      $(".tweets").empty()
+      loadTweets();
+    })
   });
-    
-//  "text": $("#tweet-text")
-    // .then(function (textField) {
-    //   const textField = $('#tweet-text').val();
-    //   console.log ('Succceess!!: ', textField);
-
-
-  
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
 
 
   const renderTweets = function (tweets) {
@@ -107,12 +84,40 @@ $(document).ready(function() {
     return $tweet;
   }
 
-  renderTweets(data)
-
-
   })
 
 // $( "#input-tweet" ).submit(function( event ) {
 //   alert( "Handler for .submit() called." );
 //   event.preventDefault();
 // });
+
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
+
+
+//  "text": $("#tweet-text") < this is yøur THIS
+    // .then(function (textField) {
+    //   const textField = $('#tweet-text').val();
+    //   console.log ('Succceess!!: ', textField);
