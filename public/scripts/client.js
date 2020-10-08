@@ -3,8 +3,37 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
 $(document).ready(function() {
+
+  //When I submit a tweet it adds it to the server database
+  $('tweet-form').submit(function (event) {
+    event.preventDefault();
+    console.log("sending tweets")
+   console.log(event.target.text.value)
+   console.log($(this).serialize())
+  //action 
+    $.ajax({
+      method: "POST", 
+      url: "/tweets/",
+      //data: {"text": $("#tweet-text").val()}
+      data: $(this).serialize()
+    })
+    .then (function () {
+      console.log("sucessfully submitted!")
+  })
+
+  // //load the tweet from the /tweets page database
+  // //use jQuery to make a request to /tweets and recieve the array of tweets to JSON
+  // const loadTweets = 
+ 
+  });
+    
+//  "text": $("#tweet-text")
+    // .then(function (textField) {
+    //   const textField = $('#tweet-text').val();
+    //   console.log ('Succceess!!: ', textField);
+
+
   
   const data = [
     {
@@ -80,9 +109,10 @@ $(document).ready(function() {
 
   renderTweets(data)
 
-// const $tweet = createTweetElement(tweetData);
-// console.log("this is $tweet: ", $tweet)
-// $('.container').append($tweet);
 
-});
+  })
 
+// $( "#input-tweet" ).submit(function( event ) {
+//   alert( "Handler for .submit() called." );
+//   event.preventDefault();
+// });
