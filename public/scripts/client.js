@@ -23,7 +23,11 @@ $(document).ready(function() {
   //   console.log("sending tweets")
   //  console.log(event.target.text.value)
   //  console.log($(this).serialize())
-  //action 
+    if ($("#tweet-text").val().length === 0) {
+      alert ("Please enter a message before hitting submit")
+    } else if ($("#tweet-text").val().length > 140) {
+      alert("Your tweet is greater than 140 characters. Please try again")
+    } else {
     $.ajax({
       method: "POST", 
       url: "/tweets/",
@@ -35,6 +39,7 @@ $(document).ready(function() {
       $(".tweets").empty()
       loadTweets();
     })
+  }
   });
 
 
