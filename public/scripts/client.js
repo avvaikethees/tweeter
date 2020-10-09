@@ -37,6 +37,9 @@ $(document).ready(function() {
     .then (function () {
       console.log("sucessfully submitted!")
       $(".tweets").empty()
+      //$("#tweet-form").reset() //<- this doesnt actually work because reset is not in jquery
+      document.getElementById('tweet-form').reset()
+      $(".counter").html(140)
       loadTweets();
     })
   }
