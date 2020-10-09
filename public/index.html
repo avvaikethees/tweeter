@@ -44,7 +44,11 @@
     <main class="container">
 
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <div class="alert">
+          <img src = "/images/alert.png" height="35">
+          <p class="alert-message"></p>
+          <img src = "/images/alert.png" height="35">
+        </div>
         <form id= "tweet-form" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
