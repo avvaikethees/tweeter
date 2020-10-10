@@ -44,6 +44,22 @@ body {
   font-weight: 700;
 }
 
+
+/* Desktop VP shrinking*/
+@media screen and (max-width: 950px) {
+  body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+
+
 /* body {
   color: #545149;
   background-color: #f4f1ec;

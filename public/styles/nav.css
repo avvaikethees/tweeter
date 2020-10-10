@@ -13,3 +13,9 @@ nav {
   top: 0;
 }
 
+
+@media screen and (max-width: 950px) {
+nav {
+  background-color: #f2a409;
+}
+}

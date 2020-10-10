@@ -42,10 +42,18 @@ hr {
   font-size: 15px;
 }
 
+.flag-retweet-like {
+  visibility: hidden;
+}
+
 article:hover {
   box-shadow: 10px 10px 5px #4b4b4b;
 }
 
 article:hover .tweet-handle{
-  visibility: visible
+  visibility: visible;
+}
+
+article:hover .flag-retweet-like {
+  visibility: visible;
 }
