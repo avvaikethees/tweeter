@@ -1,14 +1,15 @@
 nav {
   display: flex;
+  /* align-content: center; */
   justify-content: space-between;
   font-family: "Source Sans Pro";
   font-size: 30px;
   background-color: #4056A1;
   color: #ffffff;
-  height: 120px;
+  height: 100px;
   width: 100%;
   padding: 1.5em; 
-  position: fixed;
+  /* position: fixed; */
   top: 0;
 }
 

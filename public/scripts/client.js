@@ -111,7 +111,7 @@ $(document).ready(function() {
   <hr>
   <footer class="tweet-footer">
     <div>
-      10 days ago
+      ${new Date(tweet.created_at).toString().slice(4,15)}
     </div>
     <div>
       &#127988 &#x2794 &#10084
