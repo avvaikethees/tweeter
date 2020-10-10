@@ -4,10 +4,10 @@ Tweeter is a simple, single-page Twitter clone.
 
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
 
-# Screenshots
+## Screenshots
 
-!["Screenshot of Tweeter - desktop full screen"] (https://github.com/avvaikethees/tweeter/blob/master/docs/Tweeter_mainpage.png)
-!["Screenshot of Tweeter - responsive when viewport shrinks"] (https://github.com/avvaikethees/tweeter/blob/master/docs/Responsive_tweeter.png)
+!["Screenshot of Tweeter - desktop full screen"](https://github.com/avvaikethees/tweeter/blob/master/docs/Tweeter_mainpage.png)
+!["Screenshot of Tweeter - responsive when viewport shrinks"](https://github.com/avvaikethees/tweeter/blob/master/docs/Responsive_tweeter.png)
 
 ## Getting Started
 
