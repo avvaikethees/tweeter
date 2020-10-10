@@ -5,44 +5,44 @@
  */
 $(document).ready(function() {
   
-  //error function 
-  const $error= $('.alert')
-  const showError = function (errorMessage) {
-    $error.slideDown ("fast");
+  //error function
+  const $error = $('.alert');
+  const showError = function(errorMessage) {
+    $error.slideDown("fast");
     $error.css("display", "flex");
-    $('.alert-message').html(errorMessage)
-  }
+    $('.alert-message').html(errorMessage);
+  };
 
   // function to render tweets
-  const loadTweets = function () {
-    $.ajax('/tweets/', { 
+  const loadTweets = function() {
+    $.ajax('/tweets/', {
       method: 'GET',
       dataType: 'json'
     })
-    .then(function (data) {
-      renderTweets(data)
-    })
-  }
+      .then(function(data) {
+        renderTweets(data);
+      });
+  };
 
   loadTweets();
 
 
 
   //When I submit a tweet it adds it to the server database
-  $('#tweet-form').submit(function (event) {
+  $('#tweet-form').submit(function(event) {
     event.preventDefault();
-    const theTweetText = $("#tweet-text").val()
+    const theTweetText = $("#tweet-text").val();
 
     if (theTweetText.length === 0) {
-      showError("Hey! We can't do all the work for you. Tell us what you're thinking!")
+      showError("Hey! We can't do all the work for you. Tell us what you're thinking!");
 
     } else if (theTweetText.length > 140) {
-      showError("Woah, calm down there Shakespeare... your message is too long")
+      showError("Woah, calm down there Shakespeare... your message is too long");
 
     } else {
       $error.slideUp("slow");
 
-      //function to sanitize form input 
+      //function to sanitize form input (2nd method - sanitize after form submits)
       // const escape =  function(str) {
       //   let div = document.createElement('div');
       //   div.appendChild(document.createTextNode(str));
@@ -56,38 +56,35 @@ $(document).ready(function() {
 
       //console.log($(this).serialize())
       $.ajax({
-        method: "POST", 
+        method: "POST",
         url: "/tweets/",
         //data: {"text": $("#tweet-text").val()} // same as below
         //data: {"text": safeText}
         data: $(this).serialize()
       })
-    .then (function () {
-      //console.log("sucessfully submitted!")
-
-      //$("#tweet-form").reset() //<- this doesnt actually work because reset is not in jquery
-      document.getElementById('tweet-form').reset()
-      $(".counter").html(140)
-      $(".tweets").empty()
-      loadTweets();
-    })
-  }
+        .then(function() {
+          //$("#tweet-form").reset() //<- this doesnt actually work because reset is not in jquery
+          document.getElementById('tweet-form').reset();
+          $(".counter").html(140);
+          $(".tweets").empty();
+          loadTweets();
+        });
+    }
   });
 
-  const renderTweets = function (tweets) {
-    //const reverseTweets = tweets.reverse();
+  const renderTweets = function(tweets) {
     for (let tweet of tweets) {
       const $tweetElement = createTweetElement(tweet);
       $('.tweets').prepend($tweetElement);
-    } 
-  }
+    }
+  };
 
-  const createTweetElement = function (tweet) {
-      const escape =  function(str) {
-        let div = document.createElement('div');
-        div.appendChild(document.createTextNode(str));
-        return div.innerHTML;
-      }
+  const createTweetElement = function(tweet) {
+    const escape =  function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
 
     return `<article>
     <header class="tweet-header">
@@ -118,7 +115,7 @@ $(document).ready(function() {
     </div>
   </footer>
 
-  </article>`
-  }
+  </article>`;
+  };
 
-  })
+});
